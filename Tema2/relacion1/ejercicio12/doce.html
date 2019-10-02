@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Script doce</title>
+</head>
+<body>
+    <script>
+        let num=prompt("Introduzca el numero a factorizar");
+        //Empleamos el constructor del objeto Number para convertir la cadena de texto en numero, para evitar errores.
+        num=Number(num);
+        let fact=1;
+        for (let i = 1; i <=num; i++) {
+            fact=i*fact;
+        }
+        document.write("El factorial del numero "+num+" es = "+fact);
+    
+    </script>
+</body>
+</html>
