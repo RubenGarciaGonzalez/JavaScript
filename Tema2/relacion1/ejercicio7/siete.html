@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>El septimo script</title>
+</head>
+<body>
+    <script>
+
+        let array=new Array(10);
+
+        function numerosAleatorios(){
+            let numAleatorio=Math.floor(Math.random() * (1000 - 1)) + 1;
+            return numAleatorio;
+        }
+
+        for (let index = 0; index < array.length; index++) {
+            array[index]=numerosAleatorios();
+        }
+        document.write("El array está compuesto por los numeros: "+array);
+        document.write("<br>");
+        document.write("El menor numero del array es "+Math.min.apply(null, array));
+        document.write("<br>");
+        let menor=(Math.min.apply(null,array));
+        let nuevoArray= array.slice(menor);
+        document.write("El array resultante es: "+nuevoArray);
+        
+    
+    </script>
+</body>
+</html>
