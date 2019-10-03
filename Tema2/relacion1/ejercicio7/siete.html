@@ -24,8 +24,16 @@
         document.write("El menor numero del array es "+Math.min.apply(null, array));
         document.write("<br>");
         let menor=(Math.min.apply(null,array));
-        let nuevoArray= array.slice(menor);
-        document.write("El array resultante es: "+nuevoArray);
+        for(let i in array){
+            if(array[i] == menor){
+                var posicion = i;
+            }
+        }
+        let nuevoArray= array.slice(posicion);
+        document.write("El array resultante es: ");
+        for(let i in nuevoArray){
+            document.write(" | " + nuevoArray[i] );
+        }
         
     
     </script>
