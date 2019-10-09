@@ -21,7 +21,8 @@
         }
         document.write("El array está compuesto por los numeros: "+array);
         document.write("<br>");
-        document.write("El menor numero del array es "+Math.min.apply(null, array));
+        let menor=Math.min.apply(null, array);
+        document.write("El menor numero del array es "+menor);
         document.write("<br>");
         for(let i in array){
             if(array[i] == menor){
