@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <!--
+        Ejercicio 1 
+        Escribe un script el cual contenga una función que sea capaz de calcular los años que tiene una persona.
+        A la función debe de pasarse la fecha de nacimiento de la persona y devolverá cuántos años tiene.
+    -->
+    <script>
+        let fecha=new Date();
+        let ano=fecha.getFullYear();
+        let fechaNacimiento=parseInt(prompt("¿En qué año nació usted?"));
+        function edad(ano,fechaNacimiento){
+            let resultado=ano-fechaNacimiento;
+            document.write("Su edad es "+resultado);
+        }
+
+        edad(ano,fechaNacimiento);  
+
+    </script>
+</body>
+</html>
