@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+
+    <!--
+        Ejercicio 2
+        Realiza un script que sea capaz de calcular los días que hay entre dos fechas. Siempre el número de días
+        debe de ser positivo, ya que el usuario debe de introducir 2 fechas, da igual cual es anterior a la otra,
+        para que calcule la diferencia de días de ambas.
+    -->
+
+        <script>
+            let dia=parseInt(prompt("Digame un dia"));
+            let mes=parseInt(prompt("Digame un mes"));
+            let ano=parseInt(prompt("Digame un año"));
+            let fecha1=new Date(ano,mes,dia);
+            let dia1=parseInt(prompt("Digame otro dia"));
+            let mes1=parseInt(prompt("Digame otro mes"));
+            let ano1=parseInt(prompt("Digame otro año"));
+            let fecha2=new Date(ano1,mes1,dia1);
+            let milisegundosDia=86400000;
+            let diferenciaMilisegundos = fecha2- fecha1;
+            let diferenciaDias=diferenciaMilisegundos/milisegundosDia;
+            document.write("La diferencia de dias entre la segunda y la primera fecha es "+diferenciaDias);
+
+        </script>
+    
+</body>
+</html>

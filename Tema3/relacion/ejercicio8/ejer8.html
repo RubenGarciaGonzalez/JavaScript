@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 8</title>
+</head>
+<body>
+
+    <!--
+        Haciendo uso de expresiones regulares, cómo podrías obtener del siguiente texto “Test 123123329” sólo el número.
+        Es decir, poder acceder al valor del número de este texto. Explica cada uno de los términos de la expresión.
+    -->
+
+    <script>
+        let cadena="Test 123123329";
+        let patron=/[1-9]/g;
+        let emparejamiento=cadena.match(patron);
+        document.write(emparejamiento);
+
+        /*
+        En primer lugar,tenemos entre corchetes 1-9, para poder hacer match solo con los valores entre esos dos numeros, ambos 
+        incluidos; el modificador g lo que hace es devolvernos todas las ocurrencias del patrón, dando como resultado el array 
+        con cada uno de los numeros.
+        */
+
+    </script>
+
+</body>
+</html>

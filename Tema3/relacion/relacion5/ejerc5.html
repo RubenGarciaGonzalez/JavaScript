@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    <!--
+        Crea un programa que pida al usuario el valor del radio y muestre por pantalla:
+
+        El valor del radio.
+        El valor del diámetro.
+        El valor del perímetro de la circunferencia.
+        El valor del área del círculo.
+        El valor del área de la esfera.
+        El valor del volumen de la esfera.
+
+        • El valor de Pi debes obtenerlo del objeto Math, no introducirlo manualmente.
+        • Debes escribir al lado si son cm, o cm2, ó cm3.
+        • Como datos de muestra, si metes 5, deberías obtener aproximadamente: 5 / 10 / 31,41 / 78,54 / 314,15 / 523,59.
+        (sin incluir las unidades)
+    -->
+
+        <script>
+
+            let radio=parseInt(prompt("Introduzca el radio"));
+            alert("El valor del radio es "+radio+" cm");
+            alert("El valor del diámetro es "+radio*2+" cm");
+            alert("El valor del perímetro de la circunferencia es: "+Math.PI*radio*2+" cm");
+            alert("El valor del área del círculo: "+Math.PI*(radio*radio)+" cm2");
+            alert("El valor del área de la esfera es "+4*Math.PI*(radio*radio)+" cm2");
+            alert("El valor del volumen de la esfera es "+1.33*Math.PI*(radio*radio*radio)+" cm3");
+        
+        </script>
+
+</body>
+</html>

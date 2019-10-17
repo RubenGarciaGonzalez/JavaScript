@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 11</title>
+</head>
+<body>
+        <!--
+        Tenemos un objeto que guarda los salarios de un equipo de trabajo:
+        let salarios = {
+              Juan: 10000,
+              Alicia: 16000,
+              Lucas: 13000
+        }
+        Escribe un script para sumar estos salarios y mostrar el resultado de la suma.
+        -->
+        
+        <script>
+
+            let salarios = {
+                Juan: 10000,
+                Alicia: 16000,
+                Lucas: 13000
+            }
+             let suma=0;
+            for (var nombre in salarios) {
+                alert("El salario de "+nombre+" es "+salarios[nombre]);
+                suma+=salarios[nombre];
+            }
+
+            alert("La suma total del salario es "+suma);
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+        ¿ Es posible cambiar un objeto declarado como “const” ?  Razona tu respuesta:
+
+        const usuario = {
+        nombre: "Juan"
+        };
+
+        // Esto funciona?
+        usuario.nombre = "Diego";
+
+        La declaracion de constante crea una referencia de sólo lectura; esto no significa que el valor que tenga es
+        inmutable, sino que no puede ser reasignado, por consiguiente, el objeto si puede ser alterado.
+    
+        <script>
+            const usuario = {
+                nombre: "Juan"
+            };
+
+            usuario.nombre = "Diego";
+
+            console.log(usuario);
+
+        </script>
+</body>
+</html>

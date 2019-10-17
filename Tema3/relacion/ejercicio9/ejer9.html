@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 9</title>
+</head>
+<body>
+    <!--    
+        Haciendo uso de expresiones regulares, valida el formato de un email. Como este ejercicio es muy fácil,
+        te pido que detalles cada uno de los elementos que has utilizado en la expresión regular para conseguir la validación.
+    -->
+
+    <script>
+
+        function validar(email){
+            let patron=/^[a-zA-Z0-9_]+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})/;
+            if (patron.test(email)) {
+                alert ("Correcto");
+            }else{
+                alert ("No es correcto");
+            }
+        }
+
+        let email=prompt("Introduzca su correo");
+        validar(email);
+
+        /*
+        La primera parte del patron tiene que ver con el nombre de usuario del correo: debe empezar y contener caracteres entre a-z y A-Z 
+        y 0-9 incluido el caracter especial de barra baja.
+        Después del arroba, el cual se coloca solo porque solo se permite uno en el correo, tenemos la misma corcondancia que con el nombre de 
+        usuario.Tras el punto, solo podremos escribir letras a-z y A-Z entre 2 y 4 veces
+        */
+    
+    </script>
+    
+</body>
+</html>
