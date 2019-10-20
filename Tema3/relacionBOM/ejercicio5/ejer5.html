@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+        <button onclick="abrirVentana()">Abre ventana</button>
+        <button onclick="cerrarVentana()">Cierra ventana</button> 
+        <button onclick="aumentarVentana()">Aumenta ventana</button> 
+        <button onclick="disminuirVentana()">Disminuir ventana</button> 
+        <button onclick="posicionarVentana()">Posiciona ventana</button> 
+        <button onclick="desplazarVentana()">Desplazar hacia la derecha</button> 
+    <script>
+    /*
+        Partiendo del mismo ejercicio 3, realiza un script que se capaz de:
+
+        Abrir una ventana de un tamaño determinado (cualquiera).
+        Cerrar ventana.
+        Aumentar tamaño de esa ventana.
+        Disminuir tamaño de esa ventana.
+        Posicionar en la posición (0, 0) la ventana.
+        Desplazar la ventana hacia la derecha.
+
+        Para cada una de estas funciones debemos de crear un botón, y mostrar por pantalla el tamaño de la
+        ventana para poder hacer un seguimiento de los cambios de la misma.
+    */
+        
+    var myWindow;
+
+        function tamaño(){
+            myWindow.document.write("<p>El tamaño de la ventana es "+myWindow.innerWidth+","+myWindow.innerHeight+"</p>");
+        }
+
+        function abrirVentana() {
+        myWindow = window.open("", "", "width=200, height=200");
+        tamaño();
+        myWindow.focus();
+        }
+
+        function cerrarVentana(){
+        myWindow.close();
+        } 
+
+        function aumentarVentana() {
+        myWindow.resizeBy(250, 250);
+        tamaño();
+        myWindow.focus();
+        }
+
+        function disminuirVentana() {
+        myWindow.resizeBy(-200, 50);
+        tamaño();
+        myWindow.focus();
+        }
+
+        function posicionarVentana() {
+        myWindow.moveTo(0, 0);
+        tamaño();
+        myWindow.focus();
+        }
+
+        function desplazarVentana(){
+            myWindow.moveTo(1800, 0);
+            tamaño();
+            myWindow.focus();
+        }
+    </script>
+</body>
+</html>

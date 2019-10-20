@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <button onclick="abrirVentana()">Abre ventana</button>
+    <button onclick="cerrarVentana()">Cierra ventana</button> 
+    <button onclick="comprobar()">Comprobar </button>
+    <script>
+        /*
+        Partiendo del mismo ejercicio anterior, añade un botón que compruebe si la ventana que se tiene que abrir,
+        ha sido ya abierta, está abierta, o ha sido ya cerrada.
+        */
+        var myWindow
+
+        function abrirVentana(){
+        myWindow = window.open("","myWindow","width=400,height=400,")
+        }
+
+        function cerrarVentana(){
+        myWindow.close()
+        } 
+
+        function comprobar(){
+            if (!myWindow) {
+                alert ("La ventana se ha cerrado");
+            }else if(myWindow){
+                alert("La ventana sigue abierta");
+            }
+        }
+
+    </script>
+</body>
+</html>
