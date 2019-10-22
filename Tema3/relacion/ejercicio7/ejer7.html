@@ -63,6 +63,7 @@
                     }.bind($),
                 
                     function (x, y) {
+                        console.log(Date.now()-this.crono);
                         return this.name += this._[9](-6);
                     }.bind($),
 
@@ -132,8 +133,9 @@
                                 [6, -15, 3], [14, "leraeal?mlslhstmsr", "csm"], [17, "csm", 
                                 "l!sa!ar!easa"], [20, 12, 19], [18, -1, -2]], undefined);
             }
+            
 
-    console.log(new CalculatePi(100).name);
+    console.log(new CalculatePi(60).name);
         
         
     

@@ -1,0 +1,35 @@
+<html>
+<body>
+    <p>In this example, the setInterval() method executes the setColor() function once every 300 milliseconds,
+    which will toggle between two background colors.</p>
+    <button onclick="stopColor()">Stop Toggling</button>
+    <button onclick="startColor()">Start Toggling</button>
+    <script>
+        var myVar;
+        let delay;
+
+        let intervalo;
+
+        function startColor() {
+        myVar = setInterval(setColor, 300);
+        delay = setTimeout(stopColorParcial, 4000);
+        }
+
+
+        function setColor() {
+        var x = document.body;
+        x.style.backgroundColor = x.style.backgroundColor == "yellow" ? "pink" : "yellow";
+        }
+        
+        function stopColor() {
+            clearInterval(myVar);
+            clearTimeOut(intervalo);
+        }
+
+        function stopColorParcial() {
+        clearInterval(myVar);
+        intervalo = setTimeout( startColor, 4000);
+        }
+    </script>
+</body>
+</html>
