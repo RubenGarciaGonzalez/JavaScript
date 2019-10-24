@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <script>
+        //Creacion del menu
+        document.write("<br>");
+        document.write("1.- Nombre<br><br>");
+        document.write("2.- Apellidos<br><br>");
+        document.write("3.- Email<br><br>");
+        document.write("4.- Password<br><br>");
+        document.write("5.- Salir<br><br>");
+
+        do {
+                let opc=parseInt(prompt("Introduzca la opción"));
+                switch (opc) {
+                    case 1:
+                        let nombre=prompt("Introduce tu nombre");
+                        var expre=new RegExp(/^[A-Z]$/);
+                        if (expre.test(nombre)==true) {
+                            alert("Correcto!");
+                        }else{
+                            alert("Error!");
+                            break;
+                        }
+                    case 2:
+                        let apellidos=prompt("Introduce tus apellidos");
+                        var expre1=new RegExp(/^([A-Za-z]+)\s*([A-Za-z])+$/);
+                        if (expre1.test(apellidos)==true) {
+                            alert("Correcto!");
+                        }else{
+                            alert("Error");
+                            break;
+                        }
+                    case 3:
+                        let correo=prompt("Introduzca su correo");
+                        var expre2=new RegExp(/(\w{4})*(\.{1})*(^[0-9]{4})*@+(\w{4})*(\.\w{3})+$/);
+                        if (expre2.test(correo)==true) {
+                            alert("Correcto!");
+                        }else{
+                            alert("Error!");
+                            break;
+                        }
+                    case 4:
+                        let contraseña=prompt("Introduzca su contraseña");
+                        var expre3=new RegExp(/^(*[A-Za-z])(*\d)[A-Za-z\d]{8,}$/)
+                        if (expre3.test(contraseña)) {
+                            alert("Correcto!");
+                        }else{
+                            alert("Error!");
+                            break;
+                        }
+                    case 5:
+                        alert("HASTA LA PROXIMA!!!");
+                }
+
+            } while (opc!==5);
+    </script>
+</body>
+</html>

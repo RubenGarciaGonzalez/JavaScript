@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+
+    <button onclick="abrirVentana()">Abrir Ventana</button>
+    <button onclick="cerrarVentana()">Cerrar Ventana</button>
+    <button onclick="disminuirVentana()">Disminuir Ventana</button>
+    <button onclick="posicionarVentana()">Posicionar Ventana</button>
+    <button onclick="desplazarVentana()">Desplazar Ventana</button>
+
+    <script>
+        var myWindow;
+        //1º Abrir una ventana de un tamaño determinado
+        
+        function abrirVentana(){
+            myWindow=window.open("", "", "width=400, height=400");
+            myWindow.focus();
+        }
+
+        function cerrarVentana(){
+            myWindow.close();
+        }
+
+        function disminuirVentana(){
+            myWindow.resizeBy(-40,-40);
+            myWindow.focus();
+        }
+
+        function posicionarVentana(){
+            myWindow.moveTo(0,0);
+            myWindow.focus();
+        }
+
+        function desplazarVentana(){
+            myWindow.moveTo(20,20);
+            myWindow.focus();
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <script>
+        //Creacion del reloj
+        const date = new Date();
+
+        document.write(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
+
+        if (date.getHours()>12 && date.getHours()<15) {
+            document.write("<br>Es mediodía");
+        }
+
+        if (date.getHours()>15 && date.getHours()<21) {
+            document.write("<br>Estamos en la tarde");
+        }
+
+        if (date.getHours()>21 && date.getHours()<07) {
+            document.write("<br>Es de noche");
+        }
+
+        if (date.getHours()>07 && date.getHours()<12) {
+            document.write("<br>Es mañana");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <button onclick="crecerArray()">Empezar</button>
+    <script>
+        var array=[1];
+        console.log(array);
+
+        function crecerArray(array){
+            for (let i = 2; i < 4; index++) {
+                array.pop(i);
+                console.log(array);
+            }
+        }
+
+        function disminuir(array){
+            for (let i = 0; i < array.length; i++) {
+                var ultimo=array.pop();
+                console.log(array);
+            }
+        }
+
+        let intervalo;
+        let delay;
+
+        function intervalos() {
+            intervalo = setInterval(crecerArray, 2000);
+            delay=setTimeout(disminuir,10000);
+        }
+    
+    </script>
+</body>
+</html>
