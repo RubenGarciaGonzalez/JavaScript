@@ -1,53 +1,81 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ejercicio 8</title>
+    <title>Document</title>
 </head>
 <body>
-
-    <button onclick="abrirVentana()">Abrir Ventana</button>
-
+    <button onclick="abrirVentana()">Abrir</button>
+    <button onclick="cerrarVentana()">Cerrar</button>
     <script>
-        /*
-        Realice una web que contenga un botón el cual cuando sea pulsado sea capaz de abrir una ventana de 400x400
-        localizada en una posición random dentro de los márgenes de la pantalla. Además cada segundo que pasa la
-        pantalla debe de disminuir en tamaño de 40 en 40 pixeles tanto de alto como ancho y cuando tenga una medi
-        da menor o igual a 60 x 60 empiece a crecer hasta un tamaño no mayor que 400x400. 
-        */
+        
+        let ventana;
+        let intervaloDisminuir;
+        let intervaloCrecer;
 
-        var myWindow;
-        let booleano = true;
-        let intervalo;
-        var posicion;
+        function abrirVentana()
+        {
+            if ( (ventana != undefined && !ventana.opened)
+                || ventana == undefined)
+            {
+                let alturaMax = window.outerHeight;  //innerHeight;
+                let anchuraMax = window.outerWidth;  //innerWidth;
+                imprimirCoordenadas(anchuraMax,alturaMax);
 
+                let topVtn = calcularAleatorio(alturaMax);
+                let leftVtn = calcularAleatorio(anchuraMax);
 
-        function abrirVentana(){
-            myWindow=window.open("","","width=400, height=400");
-            posicion=Math.floor((Math.random()*800));
-            myWindow.moveTo(posicion,posicion);
-            myWindow.focus();
-            intervalo=setInterval("redimension()",1000);
+                ventana = window.open("","","width=400,height=400,top="+topVtn+",left="+leftVtn );
+            
+            
+                intervaloDisminuir = setInterval( () => disminuirVentana() , 2000);
+            }
         }
 
-        function redimension(){
-            if (booleano) {
-                if (!(myWindow.innerWidth) <= 150) {
-                    myWindow.innerWidth=myWindow.innerWidth-40;
-                    myWindow.resizeTo(myWindow.innerWidth,myWindow.innerWidth);
-                }else{
-                    booleano=false;
-                }
-            }else{
-                while (!myWindow.innerWidth>400) {
-                    myWindow.resizeTo(myWindow.innerWidth+60,myWindow.innerWidth+60);
-                }
-            }
-        }   
+        function disminuirVentana() {
+            let alturaV = ventana.innerHeight;
 
-        </script>
-    </div>
+            if (alturaV > 120)
+                ventana.resizeBy(-40,-40);
+            else {
+                clearInterval(intervaloDisminuir);
+                intervaloCrecer = setInterval( () => aumentarVentana() , 2000);
+            }
+        }
+
+        function aumentarVentana() {
+            let alturaV = ventana.innerHeight;
+
+            if (alturaV < 400 )
+                ventana.resizeBy(40,40);
+            else {
+                clearInterval(intervaloCrecer);
+                intervaloDisminuir = setInterval( () => disminuirVentana() , 2000);
+            }
+        }
+
+        function imprimirCoordenadas(x,y){
+            console.log("Coordenada X/Anchura: " + x);
+            console.log("Coordenada Y/Altura: " + y);
+        }
+
+        function calcularAleatorio(referencia){
+            let temp = Math.floor(Math.random() * referencia);
+            console.log("Numero Aleatorio: " + temp);
+            return temp;
+        }
+
+        function cerrarVentana()
+        {
+            ventana.close();
+            clearInterval(intervaloCrecer);
+            clearInterval(intervaloDisminuir);
+        }
+        
+    </script>
 </body>
 </html>
+
