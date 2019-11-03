@@ -1,65 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ejercicio 4</title>
-</head>
-<body>
-    <script>
-        //Creacion del menu
-        document.write("<br>");
-        document.write("1.- Nombre<br><br>");
-        document.write("2.- Apellidos<br><br>");
-        document.write("3.- Email<br><br>");
-        document.write("4.- Password<br><br>");
-        document.write("5.- Salir<br><br>");
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            let nombre = prompt("Introduce el nombre: ");
+            let apellido = prompt("Introduce el apellido: ");    
+            let email = prompt("Introduce el email: ");    
+            let password = prompt("Introduce la password: ");    
 
-        do {
-                let opc=parseInt(prompt("Introduzca la opción"));
-                switch (opc) {
-                    case 1:
-                        let nombre=prompt("Introduce tu nombre");
-                        var expre=new RegExp(/^[A-Z]$/);
-                        if (expre.test(nombre)==true) {
-                            alert("Correcto!");
-                        }else{
-                            alert("Error!");
-                            break;
-                        }
-                    case 2:
-                        let apellidos=prompt("Introduce tus apellidos");
-                        var expre1=new RegExp(/^([A-Za-z]+)\s*([A-Za-z])+$/);
-                        if (expre1.test(apellidos)==true) {
-                            alert("Correcto!");
-                        }else{
-                            alert("Error");
-                            break;
-                        }
-                    case 3:
-                        let correo=prompt("Introduzca su correo");
-                        var expre2=new RegExp(/(\w{4})*(\.{1})*(^[0-9]{4})*@+(\w{4})*(\.\w{3})+$/);
-                        if (expre2.test(correo)==true) {
-                            alert("Correcto!");
-                        }else{
-                            alert("Error!");
-                            break;
-                        }
-                    case 4:
-                        let contraseña=prompt("Introduzca su contraseña");
-                        var expre3=new RegExp(/^(*[A-Za-z])(*\d)[A-Za-z\d]{8,}$/)
-                        if (expre3.test(contraseña)) {
-                            alert("Correcto!");
-                        }else{
-                            alert("Error!");
-                            break;
-                        }
-                    case 5:
-                        alert("HASTA LA PROXIMA!!!");
-                }
+            let patronNombre = /^[A-Z][a-z]*$/;
+            let arrayApellidos = apellido.split(" ");
+            let patronEmail = /\w{4}\.\d{4}\@\w{4}\.\w{3}$/;
+            let patronPassword = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8}$/ //?= significa que da igual por donde empiece, pero debe de contener..
+                                // Cualquier letra 0 o 1 vez y un digito
+                                //cualquier letra 0 o 1 vez y una minuscula
+                                //cualquier letra 0 y 1 vez y una mayuscula
+                                //Y que tenga una longitud de 8 caracteres
+                                
+            if(patronNombre.test(nombre)){
+                console.log("Nombre Válido.");
+            }else{
+                console.log("Nombre No Válido.");
+            }
 
-            } while (opc!==5);
-    </script>
-</body>
+            if(arrayApellidos.length != 2){
+                console.log("Apellidos no validos");
+            }else{
+                console.log("Apellidos Válidos.");
+            }
+
+            if(patronEmail.test(email)){
+                console.log("Email Válido.");
+            }else{
+                console.log("Email No Válido.");
+            }
+
+            if(patronPassword.test(password)){
+                console.log("Contraseña Válida.");
+            }else{
+                console.log("Contraseña No Válida.");
+            }
+
+        </script>
+    </body>
 </html>
