@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 1.2</title>
+</head>
+<body>
+    <script>
+        class Jugador{
+            constructor(){
+                this.nombre=nombre;
+                this.apellido=apellido;
+                this.empleo=empleo;
+                this.nivel=nivel;
+                this.puntuacion=puntuacion;
+            }
+
+            toString = function jugadorToString(){
+               var retorno= "Jugador=> Nombre: "+this.nombre+", Apellido: "+this.apellido+", Empleo: "+this.empleo+", Nivel: "+this.nivel+", Puntuación: "+this.puntuacion;
+               console.log(retorno); 
+            }
+
+        }
+
+        jugador1=new Jugador("Ruben","Garcia","Jugador Casual","19","6200");
+        jugador2=new Jugador("Antonio","Perez","Jugador Profesional","69","18920");
+        jugador1.toString();
+        jugador2.toString();
+
+    </script>
+</body>
+</html>
