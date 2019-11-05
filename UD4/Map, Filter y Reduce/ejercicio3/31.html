@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 3.1</title>
+</head>
+<body>
+    <script>   
+        var personnel = [
+            {
+                id: 5,
+                name: "Luke Skywalker",
+                pilotingScore: 98,
+                shootingScore: 56,
+                isForceUser: true,
+            },
+            {
+                id: 82,
+                name: "Sabine Wren",
+                pilotingScore: 73,
+                shootingScore: 99,
+                isForceUser: false,
+            },
+            {
+                id: 22,
+                name: "Zeb Orellios",
+                pilotingScore: 20,
+                shootingScore: 59,
+                isForceUser: false,
+            },
+            
+
+            {
+                id: 15,
+                name: "Ezra Bridger",
+                pilotingScore: 43,
+                shootingScore: 67,
+                isForceUser: true,
+            },
+            {
+                id: 11,
+                name: "Caleb Dume",
+                pilotingScore: 71,
+                shootingScore: 85,
+                isForceUser: true,
+            },
+        ];
+
+        //Intente obtener el total de todas las puntuaciones (tanto pilotingScore como shootingScore juntas)
+        //de todos aquellos personajes que sean solo usuarios de la fuerza (isForceUser == true).   
+        //(CONSEJO: Aquí va a necesitar encadenar diversos operadores).
+
+        let total = personnel
+        .filter(personal => personal.isForceUser== true)
+        .map(personal =>personal.shootingScore)
+        .reduce((acumu, actual) => acumu + actual, 0)
+
+        let total1 = personnel
+        .filter(personal => personal.isForceUser== true)
+        .map(personal =>personal.pilotingScore)
+        .reduce((acumu, actual) => acumu + actual, 0)
+
+        console.log(total+total1);
+        
+    </script>
+</body>
+</html>

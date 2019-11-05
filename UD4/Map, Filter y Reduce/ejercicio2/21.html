@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 2.1</title>
+</head>
+<body>
+    <script>    
+        var pilots = [
+        {
+            id: 2,
+            name: "Wedge Antilles",
+            faction: "Rebels",
+        },
+        {
+            id: 8,
+            name: "Ciena Ree",
+            faction: "Empire",
+        },
+        
+        {
+            id: 40,
+            name: "Iden Versio",
+            faction: "Empire",
+        },
+        {
+            id: 66,
+            name: "Thane Kyrell",
+            faction: "Rebels",
+        }
+        ];
+
+        //¿Cómo podría obtener los pilotos que fueran solo Rebeldes?
+
+        let rebeldes=pilots
+        .filter(piloto => piloto.faction==='Rebels')
+        .map(piloto => piloto.name)
+
+        console.log(rebeldes);
+        
+    </script>
+</body>
+</html>
