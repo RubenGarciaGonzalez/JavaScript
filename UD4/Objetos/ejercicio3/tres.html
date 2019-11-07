@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <script>
+        class Futbol {
+            constructor(id, nombre, apellidos, edad){
+                this.id=id;
+                this.nombre=nombre;
+                this.apellidos=apellidos;
+                this.edad=edad;
+            }
+
+            concentrarse(){
+                console.log(this.nombre+" "+this.apellidos+", quien tiene "+this.edad+" años, se está concentrando");         
+            }
+
+            viajar(){
+                console.log(this.nombre+" "+this.apellidos+", cuya edad es de "+this.edad+" años, está actualmente viajandos");
+            }
+        }
+
+        class Futbolista extends Futbol{
+            constructor(id,nombre,apellidos,edad,dorsal, demarcacion){
+                super(id,nombre,apellidos,edad);
+                this.dorsal=dorsal;
+                this.demarcacion=demarcacion;
+            }
+
+            jugarPartido(){
+                console.log("El jugador "+this.nombre+" "+this.apellidos+" con el dorsal "+this.dorsal+" juega el partido de mañana.");
+            }
+            entrenar(){
+                console.log("El jugador "+this.nombre+" "+this.apellidos+" está actualmente entrenando");
+            }
+        }
+
+        class Entrenador extends Futbol{
+            constructor(id,nombre,apellidos,edad,idFede){
+                super(id,nombre,apellidos,edad);
+                this.idFede=idFede;
+            }
+
+            dirigirPartido(){
+                console.log("El entrenador "+this.nombre+" "+this.apellidos+", con identificador de la Federación: "+this.idFede+", dirigirá el partido de mañana.");
+            }
+
+            dirigirEntrenamiento(){
+                console.log("El entrenador "+this.nombre+" "+this.apellidos+", con identificador de la Federación: "+this.idFede+", dirigirá el entrenamiento");
+            }
+        }
+
+        class Masajista extends Futbol{
+            constructor(id,nombre,apellidos,edad,titulacion, anyosExp){
+                super(id,nombre,apellidos,edad);
+                this.titulacion=titulacion;
+                this.anyosExp=anyosExp;
+            }
+
+            darMasaje(){
+                console.log(this.nombre+" "+this.apellidos+", el masajista, está dando un masaje");
+            }
+        }
+
+        let jugador=new Futbolista("5421","Ricardo","Garcia Perez","21","16","Delantero");
+        let entrenador=new Entrenador("1542","Zinedine","Calvito","46","51235423");
+        let masajista=new Masajista("4213","Rigoberto","Fernandez Poronga","38","Master en Fisioterapia","9");
+
+        jugador.jugarPartido();
+        jugador.entrenar();
+        entrenador.dirigirPartido();
+        entrenador.dirigirEntrenamiento();
+        masajista.darMasaje();
+    
+    </script>
+</body>
+</html>

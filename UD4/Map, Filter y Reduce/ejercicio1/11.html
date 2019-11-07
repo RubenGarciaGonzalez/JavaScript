@@ -35,7 +35,7 @@
 
         let totalAños = pilotos
             .map(piloto => piloto.years)
-            .reduce((acumu, actual) => acumu + actual, 0);
+            .reduce(function(acumu, actual){return acumu + actual}, 0);
 
         console.log("Años totales: "+totalAños);
         

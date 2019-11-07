@@ -8,26 +8,18 @@
 </head>
 <body>
     <script>
-        class Jugador{
-            constructor(){
-                this.nombre=nombre;
-                this.apellido=apellido;
-                this.empleo=empleo;
-                this.nivel=nivel;
-                this.puntuacion=puntuacion;
-            }
 
-            toString = function jugadorToString(){
-               var retorno= "Jugador=> Nombre: "+this.nombre+", Apellido: "+this.apellido+", Empleo: "+this.empleo+", Nivel: "+this.nivel+", Puntuación: "+this.puntuacion;
-               console.log(retorno); 
-            }
-
+        jugadores=[
+            {nombre:"Ruben",apellido:"Garcia",empleo:"Ataque",nivel:"19",puntuacion:"6200"},
+            {nombre:"Antonio",apellido:"Perez",empleo:"Apoyo",nivel:"69",puntuacion:"18532"},
+        ];
+        
+        toString = function jugadorToString(){
+               var retorno= "Jugador => Nombre: "+this.nombre+", Apellido: "+this.apellido+", Empleo: "+this.empleo+", Nivel: "+this.nivel+", Puntuación: "+this.puntuacion+" puntos";
+               console.log(retorno);
         }
-
-        jugador1=new Jugador("Ruben","Garcia","Jugador Casual","19","6200");
-        jugador2=new Jugador("Antonio","Perez","Jugador Profesional","69","18920");
-        jugador1.toString();
-        jugador2.toString();
+        
+        jugadores[0].toString();
 
     </script>
 </body>
