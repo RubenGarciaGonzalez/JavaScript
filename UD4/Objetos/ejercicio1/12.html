@@ -11,15 +11,16 @@
 
         jugadores=[
             {nombre:"Ruben",apellido:"Garcia",empleo:"Ataque",nivel:"19",puntuacion:"6200"},
-            {nombre:"Antonio",apellido:"Perez",empleo:"Apoyo",nivel:"69",puntuacion:"18532"},
+            {nombre:"Antonio",apellido:"Perez",empleo:"Apoyo",nivel:"69",puntuacion:"18532"}
         ];
         
-        toString = function jugadorToString(){
-               var retorno= "Jugador => Nombre: "+this.nombre+", Apellido: "+this.apellido+", Empleo: "+this.empleo+", Nivel: "+this.nivel+", Puntuación: "+this.puntuacion+" puntos";
-               console.log(retorno);
+        function jugadorToString(){
+               for (const key in jugadores) {
+                    console.log(`Jugador.${key} = ${jugadores[key]}`);
+               }
         }
         
-        jugadores[0].toString();
+        jugadores[0].jugadorToString();
 
     </script>
 </body>
