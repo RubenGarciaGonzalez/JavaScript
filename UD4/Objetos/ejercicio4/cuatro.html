@@ -1,79 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ejercicio 4</title>
 </head>
+
 <body>
     <script>
-        class Vehiculo{
-            constructor(numRuedas,color, nombre, velocidadMax){
-                this.numRuedas=numRuedas;
-                this.color=color;
-                this.nombre=nombre;
-                this.velocidadMax=velocidadMax;
+        class Vehiculo {
+            constructor(numRuedas, color, nombre, velocidadMax) {
+                this.numRuedas = numRuedas;
+                this.color = color;
+                this.nombre = nombre;
+                this.velocidadMax = velocidadMax;
             }
 
-            toString(){
-                let retorno= "Vehiculo => Nombre: "+this.nombre+", color del vehiculo: "+this.color+", velocidad máxima: "+this.velocidadMax+", número de ruedas: "+this.numRuedas;
-                return(console.log(retorno));
+            toString() {
+                let retorno = "Vehiculo => Nombre: " + this.nombre + ", color del vehiculo: " + this.color +
+                    ", velocidad máxima: " + this.velocidadMax + ", número de ruedas: " + this.numRuedas;
+                return (console.log(retorno));
             }
 
-            static mayorNumRuedas(a,b){
-                if (a.numRuedas>b.numRuedas) {
-                    console.log("El vehiculo con nombre "+a.nombre+" tiene más ruedas que el vehiculo con nombre "+b.nombre);
-                }else{
-                    console.log("El vehiculo con nombre "+b.nombre+" tiene más ruedas que el vehiculo con nombre "+a.nombre);
+            static mayorNumRuedas(a, b) {
+                if (a.numRuedas > b.numRuedas) {
+                    console.log("El vehiculo con nombre " + a.nombre +
+                        " tiene más ruedas que el vehiculo con nombre " + b.nombre);
+                } else {
+                    console.log("El vehiculo con nombre " + b.nombre +
+                        " tiene más ruedas que el vehiculo con nombre " + a.nombre);
                 }
             }
         }
 
-        class Automovil extends Vehiculo{
-            constructor(numRuedas,color, nombre, velocidadMax,numPasajerosTotal,numPasajerosActual){
-                super(numRuedas,color, nombre, velocidadMax);
-                this.numPasajerosTotal=numPasajerosTotal;
-                this.numPasajerosActual=numPasajerosActual;
+        class Automovil extends Vehiculo {
+            constructor(numRuedas, color, nombre, velocidadMax, numPasajerosTotal, numPasajerosActual) {
+                super(numRuedas, color, nombre, velocidadMax);
+                this.numPasajerosTotal = numPasajerosTotal;
+                this.numPasajerosActual = numPasajerosActual;
             }
 
-            toString(){
-                let retorno= vehiculo.toString+", número de pasajeros total: "+this.numPasajerosTotal+", y número de pasajeros actual: "+this.numPasajerosActual;
-                return(console.log(retorno));
-            }
-        }
-
-        class Suv extends Vehiculo{
-            constructor(numRuedas,color, nombre, velocidadMax, tieneReductora, tiene4x4){
-                super(numRuedas,color, nombre, velocidadMax);
-                this.tieneReductora=tieneReductora;
-                this.tiene4x4=tiene4x4;
-            }
-
-            circularXNieve(){
-                console.log("El vehiculo "+this.nombre+" => tiene reductora: "+this.tieneReductora+" || tiene 4x4: "+this.tiene4x4+" || Está circulando por nieve");
-            }
-
-            circularXTierra(){
-                console.log("El vehiculo "+this.nombre+" => tiene reductora: "+this.tieneReductora+" || tiene 4x4: "+this.tiene4x4+" || Está circulando por tierra");
+            toString() {
+                let retorno = vehiculo.toString + ", número de pasajeros total: " + this.numPasajerosTotal +
+                    ", y número de pasajeros actual: " + this.numPasajerosActual;
+                return (console.log(retorno));
             }
         }
 
-        let vehiculo=new Vehiculo(4,"Rojo","Citroen C4",190);
-        let vehiculo1=new Vehiculo(2,"Negro","Yamaha Samurai",210);
-        let automovil=new Automovil(4,"Burdeos","Porsche Panamera",290,5,3);
-        let suv=new Suv(4,"Blanco","Range Rover Evoque",260,"Sí","Sí");
+        class Suv extends Vehiculo {
+            constructor(numRuedas, color, nombre, velocidadMax, tieneReductora, tiene4x4) {
+                super(numRuedas, color, nombre, velocidadMax);
+                this.tieneReductora = tieneReductora;
+                this.tiene4x4 = tiene4x4;
+            }
+
+            circularXNieve() {
+                console.log("El vehiculo " + this.nombre + " => tiene reductora: " + this.tieneReductora +
+                    " || tiene 4x4: " + this.tiene4x4 + " || Está circulando por nieve");
+            }
+
+            circularXTierra() {
+                console.log("El vehiculo " + this.nombre + " => tiene reductora: " + this.tieneReductora +
+                    " || tiene 4x4: " + this.tiene4x4 + " || Está circulando por tierra");
+            }
+        }
+
+        let vehiculo = new Vehiculo(4, "Rojo", "Citroen C4", 190);
+        let vehiculo1 = new Vehiculo(2, "Negro", "Yamaha Samurai", 210);
+        let automovil = new Automovil(4, "Burdeos", "Porsche Panamera", 290, 5, 3);
+        let suv = new Suv(4, "Blanco", "Range Rover Evoque", 260, "Sí", "Sí");
 
         vehiculo.toString();
-        let mayor=Vehiculo.mayorNumRuedas(vehiculo,vehiculo1);
+        let mayor = Vehiculo.mayorNumRuedas(vehiculo, vehiculo1);
         automovil.toString();
         suv.circularXNieve();
         suv.circularXTierra();
-
-
-
-
-
     </script>
 </body>
+
 </html>
