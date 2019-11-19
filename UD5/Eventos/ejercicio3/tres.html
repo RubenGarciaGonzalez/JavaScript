@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <div id="texto">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et placerat ipsum. Fusce maximus enim purus,
+            quis vulputate lectus ultricies vitae. Nam mattis vestibulum sapien. In eleifend scelerisque arcu vel auctor.
+            Nunc quam turpis, aliquet aliquet volutpat in, egestas eget est. Sed quis elementum ex. Maecenas ut porttitor
+            massa. Sed rhoncus nibh sagittis quam condimentum sagittis. Pellentesque a felis a ex ultricies porttitor ut
+            vitae nunc. Sed a orci felis. Quisque sit amet pellentesque mi.
+        </p>
+    </div>
+    <button id="boton1">Boton 1</button>
+    <button id="boton2">Boton 2</button>
+
+    <script>
+        document.getElementById("texto").addEventListener("mouseover",pintarColor);
+        document.getElementById("texto").addEventListener("mouseout",pintarColor);
+        document.getElementById("boton1").addEventListener("click",controlarClick);
+        document.getElementById("boton2").addEventListener("click",controlarClick);
+
+        function pintarColor(e) {
+            //Obtenemos el window.event
+            if (!e)
+               e = window.event; 
+            switch (e.type) {  //Obtenemos el tipo de evento, y base, actuamos:         
+            case "mouseover":
+                this.style.color = "red";
+                break;
+            case "mouseout":
+                this.style.color = "black";
+                break;
+            }
+        }
+
+        function controlarClick(e) {
+            //Obtenemos el window.event con el fin de obtener el target.id
+            if (!e) e = window.event;
+            if (e.target.id == "boton1") 
+               alert("Has pulsado el boton 1");
+            else if (e.target.id == "boton2") 
+               alert("Has pulsado el boton 2");
+        }
+    
+    </script>
+</body>
+
+</html>

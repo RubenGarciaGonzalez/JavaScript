@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 4</title>
+</head>
+<body style="background-color: tomato">
+    <div id="primerEvento" style="text-align: center;">
+        <h1>Evento onClick</h1>
+        <p>
+            Este evento ejecuta un script cuando un botón es pulsado.
+        </p>
+        <button id="boton">Púlsame</button>
+    </div>
+    <br>
+    <div id="segundoEvento" style="text-align: center;">
+        <h1>Evento onwheel</h1>
+        <p>
+            Este evento ejecta un script cuando el usuario utiliza la rueda de ratón encima de un elemento div
+        </p>
+        <div id="onwheel">
+            Desliza la rueda del ratón encima de este texto para que crezca su tamaño
+        </div>
+    </div>
+    <br>
+    <div id="tercerEvento" style="text-align: center;">
+        <h1>
+            Evento onkeypress
+        </h1>
+        <p>
+            Este evento ejecuta un script cuando el usuario pulsa una tecla
+        </p>
+            <h3>Pulsa una tecla</h3>
+            <div id="caja" style="margin-left: 915px;border:solid 2px; width:80px; height:80px; ; font-size:50px; text-align:center;"></div>
+    </div>
+    <br>
+    <div id="cuartoEvento" style="text-align: center;">
+        <h1>Evento oncopy</h1>
+        <p>
+            Este evento ejecuta un script cuando se copia algún texto de un elemento de tipo input
+        </p>
+        <input id="oncopy" type="text" value="Prueba a copiar esto">
+        <p id="comprobacion"></p>
+    </div>
+    <br>
+    <div id="quintoEvento" style="text-align: center;">
+        <h1>Evento onblur</h1>
+        <p>
+            Este evento valida un input cuando el usuario lo abandona
+        </p>
+        Introduzca su nombre : <input type="text" name="nombre" id="onblur">
+    </div>
+
+    <script>
+        document.getElementById("boton").addEventListener("click",abrirBoton);
+        document.getElementById("onwheel").addEventListener("wheel", deslizar);
+        document.getElementById("oncopy").addEventListener("copy",copiar);
+        document.getElementById("onblur").addEventListener("blur", blur);
+
+
+        function abrirBoton(e){
+            alert("Has pulsado el botón");
+        }
+
+        function deslizar(e){
+            document.getElementById("onwheel").style.fontSize="26px"
+        }
+
+        window.onload = function() {
+			document.onkeypress = mostrarInformacionTecla;
+		}
+		
+        function mostrarInformacionTecla(eventoObj){
+			var caracter = String.fromCharCode(eventoObj.which);
+			document.getElementById("caja").innerHTML = caracter;
+		}
+
+        function copiar(e){
+            document.getElementById("comprobacion").innerHTML="Has copiado el texto!!!";
+        }
+
+        function blur(){
+            var y = document.getElementById("onblur");
+            y.value = y.value.toUpperCase();
+        }
+
+    </script>
+</body>
+</html>

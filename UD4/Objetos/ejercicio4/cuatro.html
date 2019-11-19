@@ -21,7 +21,7 @@
             toString() {
                 let retorno = "Vehiculo => Nombre: " + this.nombre + ", color del vehiculo: " + this.color +
                     ", velocidad máxima: " + this.velocidadMax + ", número de ruedas: " + this.numRuedas;
-                return (console.log(retorno));
+                return retorno;
             }
 
             static mayorNumRuedas(a, b) {
@@ -43,17 +43,21 @@
             }
 
             toString() {
-                let retorno = vehiculo.toString + ", número de pasajeros total: " + this.numPasajerosTotal +
-                    ", y número de pasajeros actual: " + this.numPasajerosActual;
-                return (console.log(retorno));
+                let retorno = super.toString() + ", número de pasajeros total: " + this.numPasajerosTotal +", y número de pasajeros actual: " + this.numPasajerosActual;
+                return retorno;
             }
         }
 
-        class Suv extends Vehiculo {
-            constructor(numRuedas, color, nombre, velocidadMax, tieneReductora, tiene4x4) {
-                super(numRuedas, color, nombre, velocidadMax);
+        class Suv extends Automovil {
+            constructor(numRuedas, color, nombre, velocidadMax,numPasajerosTotal, numPasajerosActual, tieneReductora, tiene4x4) {
+                super(numRuedas, color, nombre, velocidadMax,numPasajerosTotal, numPasajerosActual);
                 this.tieneReductora = tieneReductora;
                 this.tiene4x4 = tiene4x4;
+            }
+
+            toString() {
+                let retorno = super.toString() + ", tiene reductora: " + this.tieneReductora +", y es 4x4: " + this.tiene4x4;
+                return retorno;
             }
 
             circularXNieve() {
@@ -70,14 +74,15 @@
         let vehiculo = new Vehiculo(4, "Rojo", "Citroen C4", 190);
         let vehiculo1 = new Vehiculo(2, "Negro", "Yamaha Samurai", 210);
         let automovil = new Automovil(4, "Burdeos", "Porsche Panamera", 290, 5, 3);
-        let suv = new Suv(4, "Blanco", "Range Rover Evoque", 260, "Sí", "Sí");
+        let suv = new Suv(4, "Blanco", "Range Rover Evoque", 260, 5,3, "Sí","Sí");
 
-        vehiculo.toString();
+        console.log(vehiculo.toString());
         let mayor = Vehiculo.mayorNumRuedas(vehiculo, vehiculo1);
-        automovil.toString();
+        console.log(automovil.toString());
         suv.circularXNieve();
         suv.circularXTierra();
-    </script>
+        console.log(suv.toString());
+    </script>   
 </body>
 
 </html>

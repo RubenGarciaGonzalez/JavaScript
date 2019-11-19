@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .blanco {
+            background-color:white;
+        }
+
+        .rojo {
+            background-color: red;
+        }
+
+        .amarillo {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="prueba" tabindex=1></div>
+
+    <script>
+        window.onload=function(){
+                let div=document.getElementById("prueba");
+                addEventListener("keypress", function(e){
+                e = event.key;
+                if (e == "b") {
+                    div.className = "blanco";
+                }else if(e == "r"){
+                    div.className = "rojo";
+                }else if(e == "a"){
+                    div.className = "amarillo";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

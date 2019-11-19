@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 1 - DOM básico y atributos HTML</title>
+</head>
+
+<body>
+    <div id="ocultar1">
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+            Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+            vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+            pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+            ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+            posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+        </p>       
+    </div>
+    <input type="button" value="Ocultar" onclick="ocultar()"></a>
+    <input type="button" value="Mostrar" onclick="mostrar()"></a> 
+    <br />
+    <div id="mostrarOcultar1">
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+            Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+            vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+            pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+            ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+            posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+        </p>
+    </div>
+    <input type="button" value="Ocultar" onclick="ocultar1()"></a>
+    <input type="button" value="Mostrar" onclick="mostrar1()"></a> 
+    <br />
+    <div id="mostrarOcultar2">
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+            Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+            vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+            pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+            ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+            posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+        </p>
+    </div>
+    <input type="button" value="Ocultar" onclick="ocultar2()"></a>
+    <input type="button" value="Mostrar" onclick="mostrar2()"></a> 
+    <script>
+        // 1.- Haciendo modificaciones en el código html para que nos resulte más fácil asignar eventos y manejadores.
+
+        function ocultar(){
+            document.getElementById('ocultar1').style.display="none";
+        }
+
+        function mostrar(){
+            document.getElementById('ocultar1').style.display="block";
+        }
+
+        function ocultar1(){
+            document.getElementById('mostrarOcultar1').style.display="none";
+        }
+
+        function mostrar1(){
+            document.getElementById('mostrarOcultar1').style.display="block";
+        }
+
+        function ocultar2(){
+            document.getElementById('mostrarOcultar2').style.display="none";
+        }
+
+        function mostrar2(){
+            document.getElementById('mostrarOcultar2').style.display="block";
+        }
+    
+    </script>
+</body>
+
+</html>

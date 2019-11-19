@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejercicio 1 - DOM básico y atributos HTML</title>
+</head>
+
+<body>
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+            Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+            vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+            pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+            ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+            posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+        </p>
+        <a href="#">Ocultar contenidos</a>
+    </div>
+    <br />
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+            Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+            vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+            pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+            ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+            posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+        </p>
+        <a href="#">Ocultar contenidos</a>
+    </div>
+    <br />
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero.
+            Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere
+            vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor,
+            pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus
+            ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at
+            posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+        </p>
+        <a href="#">Ocultar contenidos</a>
+    </div>
+    <script>
+        document.getElementsByTagName("DIV")[0].addEventListener("mouseover",ocultarMostrar);
+        document.getElementsByTagName("DIV")[0].addEventListener("mouseout",ocultarMostrar);
+        document.getElementsByTagName("DIV")[1].addEventListener("mouseover",ocultarMostrar);
+        document.getElementsByTagName("DIV")[1].addEventListener("mouseout",ocultarMostrar);
+        document.getElementsByTagName("DIV")[2].addEventListener("mouseover",ocultarMostrar);
+        document.getElementsByTagName("DIV")[2].addEventListener("mouseout",ocultarMostrar);
+
+        window.onload=ocultarMostrar;
+
+        function ocultarMostrar(e) {
+            //Obtenemos el window.event
+            if (!e)
+               e = window.event; 
+            switch (e.type) {  //Obtenemos el tipo de evento, y base, actuamos:         
+            case "mouseover":
+                this.style.opacity = "0";
+                break;
+            case "mouseout":
+                this.style.opacity = "1";
+                break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
