@@ -2,6 +2,11 @@
 
 <head>
     <title>VALIDACIÓN DE FORMULARIOS CON HTML5</title>
+    <style>
+        .error {
+            border: solid 2px #FF0000;
+        }
+    </style>
 </head>
 
 <body>
@@ -11,7 +16,8 @@
             <tr>
                 <td>Nombre*: </td>
                 <td>
-                    <input type="text" pattern="/[A-Za-z]{2,15}/g" title="Introduce entre 2 y 15 letras" name="nombre" id="nombre" max="15" required/>
+                    <input type="text" pattern="/([A-Za-z]{2,15}/" title="Introduce entre 2 y 15 letras" name="nombre"
+                        id="nombre" max="15" required />
                 </td>
             </tr>
             <tr>
@@ -24,7 +30,14 @@
             <tr>
                 <td>Telefono*: </td>
                 <td>
-                    <input type="text" pattern="/[0-9]{9}/" title="Número de 9 cifras" name="telefono" id="telefono" required />
+                    <input type="text" pattern="/^[6|7|8|9][0-9]{8}$/" title="Número de 9 cifras" name="telefono" id="telefono"
+                        required />
+                </td>
+            </tr>
+            <tr>
+                <td>Rango</td>
+                <td>
+                    <input type="range" min="1" max="100" step="5" value="50">
                 </td>
             </tr>
         </table>
@@ -34,6 +47,95 @@
         </p>
         <p id="mensajeError"></p>
     </form>
+
+    <script>
+        let botonEnviar = document.getElementById("enviar").addEventListener("click", validar);
+        let mensaje = document.getElementById("mensajeError");
+
+        function validarNombre() {
+            let nombre = document.getElementById("nombre");
+            if (!nombre.checkValidity()) {
+                if (nombre.validity.valueMissing) {
+                    mensaje="Debe introducir un nombre";
+                    denotarError(nombre,mensaje); 
+                }
+
+                if (nombre.validity.patternMismatch) {
+                    mensaje="No coincide con el patron establecido"
+                    denotarError(nombre, mensaje);
+                }
+                borrarError(nombre);
+                return false;
+
+            }
+            return true;
+        }
+
+        function validarEdad() {
+            let edad = document.getElementById("edad");
+            if (!edad.checkValidity()) {
+                if (edad.validity.valueMissing) {
+                    mensaje="No ha introducido su edad";
+                    denotarError(edad,mensaje); 
+                }
+                if (edad.validity.rangeOverflow) {
+                    mensaje="Su edad no puede ser mayor de 100";
+                    denotarError(edad,mensaje); 
+                }
+                if (edad.validity.rangeUnderflow) {
+                    mensaje="Su edad no puede ser menor de 18";
+                    denotarError(edad,mensaje); 
+                }
+                borrarError(edad);
+                return false;
+            }
+
+            return true;
+        }
+
+        function validarTelefono() {
+            let telefono = document.getElementById("telefono");
+
+            if (!telefono.checkValidity()) {
+                if (telefono.validity.valueMissing) {
+                    mensaje="No ha introducido su teléfono";
+                    denotarError(telefono,mensaje);                     
+                }
+                if (telefono.validity.patternMismatch) {
+                    mensaje="El telefono no concuerda con el patrón establecido";
+                    denotarError(telefono,mensaje);              
+                }
+                borrarError(telefono);
+                return false;
+            }
+
+            return true;
+        }
+
+        function validar(e){
+
+            e.preventDefault();
+            
+            if (validarNombre() && validarEdad() && validarTelefono()) {
+                alert("Todos los campos son correctos");
+            }
+        }
+
+        function denotarError(elemt, mensajeError){
+            document.getElementById("mensajeError").innerHTML= mensaje;
+            elemt.className="error";
+            elemt.focus();
+        }
+
+        function borrarError(elemt){
+            var form=document.forms[0];
+            for (let index = 0; index < form.elements.length; index++) {
+                form.elements[i].className="";
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>

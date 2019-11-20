@@ -2,7 +2,7 @@ window.onload=iniciar;
 
 function iniciar(){
     let elemento = document.getElementById("enviar");
-    elemento.addEventListener("click", validar);
+    elemento.addEventListener("click", validar, false);
 }
 
 /*
@@ -12,50 +12,56 @@ Comprobar que los campos “día”, ”mes” y “ano” formen una fecha vál
 Comprobar que el checkbox de mayor de 18 años esté chequeado o no.
 */
 
-function validar(){
+function validacionNombre(){
+    let nombre=document.getElementById("nombre");
+    if (nombre.value="") {
+        alert("Error, el campo está vacío");
+        return false;
+    }
+    return true;
+}
 
-    let nombre= document.getElementById("nombre").value;
-    let telefono = document.getElementById("telefono").value;
-    let dia = document.getElementById("dia").value;
-    let mes = document.getElementById("mes").value;
-    let ano = document.getElementById("ano").value;
-    let mayor = document.getElementById("mayor").checked;
-
-    if (nombre == null || nombre.length == 0 ) {
-        alert("Error al validar su nombre");
-        return;
+function validacionTelefono(){
+    let telefono=document.getElementById("telefono");
+    if (isNaN(telefono.value)) {
+        alert("Error, no has introducido números");
+        return false;
     }
 
-    if (telefono == null || telefono != parseInt(telefono)) {
-        alert("Error al validar su telefono");
-        return;
+    return true;
+}
+
+function validacionFecha(){
+    let dia=document.getElementById("dia");
+    let mes=document.getElementById("mes");
+    let anyo=document.getElementById("ano");
+
+    let fecha=new Date(anyo, mes, dia);
+    if (isNaN(fecha)) {
+        alert("Algún elemento de la fecha es incorrecto");
+        return false;
     }
 
-    if (dia == "" || mes == "" || ano == "") {
-        alert("Error al validar su fecha de nacimiento, faltan datos");
-        return;
-    }
+    return true;
+}
 
-    if (dia<1 || dia>31) {
-        alert("Dia invalido");
-        return;
-    }
-
-    if (mes<1 || mes>12) {
-        alert("Mes invalido");
-        return;
-    }
-
-    if (ano<1900 || ano>2019) {
-        alert("Año invalido");
-        return;
-    }
-
-    if (mayor) {
+function validacionMayor(){
+    let mayor=document.getElementById("mayor");
+    if (mayor.checked) {
         alert("Es mayor de edad");
-        return;
+        return false;
     }
 
+    return true;
+}
 
+function validar(e){
+
+    if (validacionNombre() && validacionTelefono() && validacionFecha() && validacionMayor()) {
+        alert("Ya puede enviar el formulario sin problemas");
+        return true;
+    }else{
+        e.preventDefault();
+    }
 
 }
