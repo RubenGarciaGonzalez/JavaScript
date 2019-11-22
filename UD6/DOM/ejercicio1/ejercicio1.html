@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <div id="norte">
+        <h2>Galicia</h2>
+        <ul id="lista">
+            <li>A Coruña</li>
+            <li>Lugo</li>
+            <li>Ourense</li>
+            <li>Pontevedra</li>
+        </ul>
+    </div>
+    <div id="sur">
+        <h2>Canarias</h2>
+        <ul id="lista">
+            <li>Santa Cruz de Tenerife</li>
+            <li>Las Palmas</li>
+        </ul>
+    </div>
+    <div id="texto"></div>
+
+    <script>
+        document.getElementById("norte").addEventListener("click", info);
+        document.getElementById("sur").addEventListener("click", info);
+
+        function info(e) {
+
+            let lista = document.getElementById("lista");
+            let lista2 =  document.getElementsByTagName("ul")[1];
+            let text = document.getElementById("texto");
+
+            if (!e) e = window.event;
+
+            if (e.target.id == "norte") {
+                text.innerHTML = "Has elegido Galicia que está situada en el " + e.target.id + "<br>";
+                let nodoTexto = document.createTextNode("El número de provincias es " + lista.children.length + ": ");
+                text.append(nodoTexto);
+                for( var i=0; i < lista.children.length; i++)
+                {
+                    text.append(lista.children[i].textContent+" ");  
+                }
+
+            } else if (e.target.id == "sur") {
+                text.innerHTML = "Has elegido Canarias que está situada en el " + e.target.id+ "<br>";
+                let nodoTexto = document.createTextNode("El número de provincias es " + lista2.children.length + ": ");
+                text.append(nodoTexto);
+                for( var i=0; i < lista2.children.length; i++)
+                {
+                    text.append(lista2.children[i].textContent+" ");  
+                }
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
