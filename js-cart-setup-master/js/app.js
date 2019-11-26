@@ -1,56 +1,68 @@
-//show cart
-(function(){
-    const cartInfo=document.getElementById("cart-info");
-    const cart= document.getElementById("cart");
-
-    cartInfo.addEventListener("click",function(){
-        cart.classList.toggle("show-cart");
+window.onload = function () {
+  
+  const cartInfo = document.getElementById("cart-info");
+  const cart = document.getElementById("cart");
+  const items = document.querySelectorAll(".cart-item-remove");
+  items.forEach(element => {
+    element.addEventListener("click", function () {
+      element.parentElement.remove();
+      showTotals();
     });
-})();
-
-//add items to the cart
-
-(function(){
-const cartBtn=document.querySelectorAll(".store-item-icon");
-
-cartBtn.forEach(function(btn){
-    btn.addEventListener("click",function(event){
-       // console.log(event.target);
-       if(event.target.parentElement.classList.contains("store-item-icon"))
-       {
-       let fullPath=
-       event.target.parentElement.previousElementSibling.src;
-       let pos = fullPath.indexOf("img")+3;
-       let partPath = fullPath.slice(pos);
-
-       const item={};
-       item.img=`img-cart${partPath}`;
-       let name=
-       event.target.parentElement.parentElement.nextElementSibling
-       .children[0].children[0].textContent;
-       item.name=name;
-       let price=
-       event.target.parentElement.parentElement.nextElementSibling
-       .children[0].children[1].textContent;
-
-       let finalPrice =price.slice(1).trim();
-        item.price=finalPrice;
-      // console.log(finalPrice);
+  });
+  const clear = document.getElementById("clear-cart");
+  clear.addEventListener("click", function () {
+    items.forEach(element => {
+      element.parentElement.remove();
+      showTotals();
+    });
+  });
+  cartInfo.addEventListener("click", function () {
+    cart.classList.toggle("show-cart");
+  });
 
 
-       //console.log(name);
+  //add items to the cart
 
-       //console.log(item);
 
-       const cartItem=document.createElement('div');
+  const cartBtn = document.querySelectorAll(".store-item-icon");
+
+  cartBtn.forEach(function (btn) {
+    btn.addEventListener("click", function (event) {
+      // console.log(event.target);
+      if (event.target.parentElement.classList.contains("store-item-icon")) {
+        let fullPath =
+          event.target.parentElement.previousElementSibling.src;
+        let pos = fullPath.indexOf("img") + 3;
+        let partPath = fullPath.slice(pos);
+
+        const item = {};
+        item.img = `img-cart${partPath}`;
+        let name =
+          event.target.parentElement.parentElement.nextElementSibling
+          .children[0].children[0].textContent;
+        item.name = name;
+        let price =
+          event.target.parentElement.parentElement.nextElementSibling
+          .children[0].children[1].textContent;
+
+        let finalPrice = price.slice(1).trim();
+        item.price = finalPrice;
+        // console.log(finalPrice);
+
+
+        //console.log(name);
+
+        //console.log(item);
+
+        const cartItem = document.createElement('div');
         cartItem.classList.add(
-        'cart-item',
-        'd-flex',
-        'justify-content-between',
-        'text-capitalize',
-        'my-3'
+          'cart-item',
+          'd-flex',
+          'justify-content-between',
+          'text-capitalize',
+          'my-3'
         );
-        cartItem.innerHTML=`
+        cartItem.innerHTML = `
          <img src="${item.img}" class="img-fluid rounded-circle" id="item-img" alt="">
          <div class="item-text">
 
@@ -64,34 +76,49 @@ cartBtn.forEach(function(btn){
        </div>
        `;
 
-       //select cart
-       const cart= document.getElementById('cart');
-       const total=document.querySelector('.cart-total-container');
+        //select cart
+        const cart = document.getElementById('cart');
+        const total = document.querySelector('.cart-total-container');
+        cart.insertBefore(cartItem, total);
 
-       cart.insertBefore(cartItem, total);
-       alert("item added to the cart");
-       showTotals();
-       }
+        alert("item added to the cart");
+        showTotals();
+        const items = document.querySelectorAll(".cart-item-remove");
+        items.forEach(element => {
+          element.addEventListener("click", function () {
+            element.parentElement.remove();
+            showTotals();
+          });
+        });
+      }
     });
-});
-//show total
-function showTotals(){
-    const total= [];
-    const item= document.querySelectorAll(".cart-item-price");
-
-    item.forEach(function(item){
-        total.push(parseFloat(item.textContent));
-    });
-   // console.log(total);
-
-   const totalMoney= total.reduce(function(total, item){
-       total+=item;
-       return total;
-   },0);
-   const finalMoney= totalMoney.toFixed(2);
-
-   document.getElementById("cart-total").textContent=finalMoney;
-   document.querySelector(".item-total").textContent=finalMoney;
-   document.getElementById("item-count").textContent=total.length;
+  });
 }
-})();
+
+//show cart
+
+//show total
+function showTotals() {
+  const total = [];
+  const item = document.querySelectorAll(".cart-item-price");
+
+  item.forEach(function (item) {
+    total.push(parseFloat(item.textContent));
+  });
+  // console.log(total);
+
+  const totalMoney = total.reduce(function (total, item) {
+    total += item;
+    return total;
+  }, 0);
+  const finalMoney = totalMoney.toFixed(2);
+
+  document.getElementById("cart-total").textContent = finalMoney;
+  document.querySelector(".item-total").textContent = finalMoney;
+  document.getElementById("item-count").textContent = total.length;
+}
+
+
+function borrarProducto() {
+
+}

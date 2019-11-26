@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Edit Remove HTML Table Row</title>
+    <meta charset="windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .container {
+            overflow: hidden
+        }
+
+        .tab {
+            float: left;
+        }
+
+        .tab-2 {
+            margin-left: 50px
+        }
+
+        .tab-2 input {
+            display: block;
+            margin-bottom: 10px
+        }
+
+        tr {
+            transition: all .25s ease-in-out
+        }
+
+        tr:hover {
+            background-color: #EEE;
+            cursor: pointer
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="tab tab-1">
+            <table id="table" border="1">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                </tr>
+                <tr>
+                    <td>A1</td>
+                    <td>B1</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>A3</td>
+                    <td>B3</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>A2</td>
+                    <td>B2</td>
+                    <td>20</td>
+                </tr>
+            </table>
+        </div>
+        <div class="tab tab-2">
+            First Name : <input type="text" name="fname" id="fname">
+            Last Name : <input type="text" name="lname" id="lname">
+            Age : <input type="number" name="age" id="age">
+
+            <button onclick="addHtmlTableRow();">Add</button>
+            <button onclick="editHtmlTbleSelectedRow();">Edit</button>
+            <button onclick="removeSelectedRow();">Remove</button>
+        </div>
+    </div>
+
+    <script>
+
+        let indiceFila, tabla = document.getElementById("table");
+
+        //Añadir filas
+
+        function addHtmlTableRow() {
+
+            // Obtenemos la tabla por su ID
+            // Creamos una fila con sus correspondientes celdas
+            // Obtenemos el valor del campo de texto
+            // Establecemos los valores en las celdas de la fila
+
+            let nuevaFila = tabla.insertRow(tabla.length);
+            let celda1 = nuevaFila.insertCell(0);
+            let celda2 = nuevaFila.insertCell(1);
+            let celda3 = nuevaFila.insertCell(2);
+
+            primerNombre = document.getElementById("fname").value;
+            apellido = document.getElementById("lname").value;
+            edad = document.getElementById("age").value;
+
+            celda1.innerHTML = primerNombre;
+            celda2.innerHTML = apellido;
+            celda3.innerHTML = edad;
+
+
+            // LLamamos a la funcion para establecer el evento de la nueva fila
+            selectedRowToInput();
+        }
+
+
+        // Esta funcion mostrará la fila seleccionada en los campos de texto
+        function selectedRowToInput() {
+            for (let i = 0; i < tabla.rows.length; i++) {
+
+                tabla.rows[i].onclick = function () {
+                    // Obtenemos el indice de la fila seleccionada
+                    indiceFila = this.rowIndex;
+                    document.getElementById("fname").value = this.cells[0].innerHTML;
+                    document.getElementById("lname").value = this.cells[1].innerHTML;
+                    document.getElementById("age").value = this.cells[2].innerHTML;
+
+                };
+            }
+        }
+        selectedRowToInput();
+
+        function editHtmlTbleSelectedRow() {
+
+            // Obtenemos los valores de los campos
+            let primerN = document.getElementById("fname").value;
+            let apell = document.getElementById("lname").value;
+            let eda = document.getElementById("age").value;
+
+            tabla.rows[indiceFila].cells[0].innerHTML = primerN;
+            tabla.rows[indiceFila].cells[1].innerHTML = apell;
+            tabla.rows[indiceFila].cells[2].innerHTML = eda;
+        }
+
+        function removeSelectedRow(){
+            tabla.deleteRow(indiceFila);
+            // Ponemos los campos de texto vacíos
+            document.getElementById("fname").value = "";
+            document.getElementById("lname").value = "";
+            document.getElementById("age").value = "";
+        }
+
+
+    </script>
+</body>
+
+</html>
