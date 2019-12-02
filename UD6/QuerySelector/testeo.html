@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prueba JuanP</title>
+</head>
+<body>
+    <script>
+        function hacerEjercicio1(callback){
+            setTimeout(function(){
+                console.log("Haciendo Ejercicio 1");
+                let miResultado=7;
+                hacerEjercicio2(new Error("Mu mal"), miResultado);
+            },3000);
+        }
+
+        function hacerEjercicio2(error, resultado){
+            if (!error) {
+                console.log("Haciendo Ejercicio 2");
+                console.log("El resultado de E1: "+resultado);
+            }else{
+                console.log("Ha habido un error: "+error.message);
+            }
+        }
+
+        hacerEjercicio1(hacerEjercicio2);
+    </script>
+</body>
+</html>

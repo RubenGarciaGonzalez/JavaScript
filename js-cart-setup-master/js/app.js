@@ -119,6 +119,3 @@ function showTotals() {
 }
 
 
-function borrarProducto() {
-
-}
