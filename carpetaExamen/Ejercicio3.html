@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script type="text/javascript">
+            
+            var actual = new Date();
+            var msActual = actual.getTime();
+
+            var i, output = "";
+            for(i = 1; i<=1e6; i++){
+                output += 1;
+            }
+            var final = new Date();
+            var msFinal = final.getTime();
+
+            var resultado = msFinal-msActual;
+           
+            console.log("En total ha tardado en ejecutar el script: "+resultado+" milisegundos.");
+
+        </script>
+
+    </body>
+</html>

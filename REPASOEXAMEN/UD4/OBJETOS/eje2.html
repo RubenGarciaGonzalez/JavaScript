@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 2 Objetos UD4</title>
+</head>
+<body>
+    <script>
+        class Jugadores{
+            constructor(nombre, apellido, empleo, nivel, puntuacion){
+                this.nombre=nombre;
+                this.apellido=apellido;
+                this.empleo=empleo;
+                this.nivel=nivel;
+                this.puntuacion=puntuacion;
+            }
+
+            toString = function jugadorToString(){
+               var retorno= "Jugador => Nombre: "+this.nombre+", Apellido: "+this.apellido+", Empleo: "+this.empleo+", Nivel: "+this.nivel+", Puntuación: "+this.puntuacion+" puntos";
+               console.log(retorno);
+                
+            }
+
+            
+        }
+    </script>
+</body>
+</html>
