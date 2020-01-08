@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Ejercicio 2 Examen</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        let franjaHoraria = "";
+        window.onload=relojVivo;
+        function relojVivo(){
+            tiempoActual = new Date();
+            hora = tiempoActual.getHours();
+            minutos = tiempoActual.getMinutes();
+            segundos = tiempoActual.getSeconds();
+
+            tiempo = hora + " : " + minutos + " : " + segundos;
+
+            document.getElementById("demo").innerHTML=tiempo;
+
+            if (hora >= 12 && hora < 15) {
+                franjaHoraria="Es mediodia";
+            }else if (hora >= 15 && hora <21) {
+                franjaHoraria="Estamos en la tarde";
+            }else if (hora >= 21 && hora < 7) {
+                franjaHoraria = "Es de noche";
+            }else{
+                franjaHoraria = "Es mañana";
+            }
+
+            document.getElementById("franja").innerHTML = franjaHoraria;
+
+            setTimeout("relojVivo()", 1000);
+        }
+
+        let reloj = setInterval(relojVivo,1000);
+    </script>
+
+    <p id="franja"></p>
+</body>
+</html>

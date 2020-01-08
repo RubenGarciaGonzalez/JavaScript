@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 3 Examen</title>
+</head>
+<body>
+    <button onclick="abrirVentana()">Abrir ventana</button>
+    <button onclick="cerrarVentana()">Cerrar Ventana</button>
+    <button onclick="disminuirVentana()">Disminiur Ventana</button>
+    <button onclick="posicionar()">Posicionar Ventana</button>
+    <button onclick="desplazar()">Desplazar Ventana</button>
+
+    <script>
+        let ventana;
+
+        function abrirVentana(){
+            ventana = window.open("","","width=400, height=400");
+            ventana.focus();
+        }
+
+        function cerrarVentana(){
+            ventana.close();
+        }
+
+        function disminuirVentana(){
+            var tamañoW = ventana.innerWidth - 40;
+            var tamañoH = ventana.innerHeight - 40;
+
+            ventana.resizeTo(tamañoW, tamañoH);
+            ventana.focus();
+        }
+
+        function posicionar(){
+            ventana.moveTo(0,0);
+            ventana.focus();
+        }
+
+        function desplazar(){
+            var x = ventana.screenX + 20;
+            var y = ventana.screenX - 20;
+            ventana.moveTo(x,y);
+            ventana.focus();
+        }
+        
+    </script>
+</body>
+</html>

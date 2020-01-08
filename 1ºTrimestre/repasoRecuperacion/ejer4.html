@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 4 Examen</title>
+</head>
+<body>
+    <script>
+        let nombre = prompt("Dime tu nombre");
+        let apellidos = prompt("Dime tus apellidos");
+        let correo = prompt("Dime tu correo electronico");
+        let password = prompt("Dime tu contraseña")
+
+        let patronNombre = /[A-Z][a-z]*$/;
+        let arrayApellidos = apellidos.split(" ");
+        let patronEmail = /\w{4}\.\d{4}\@\w{4}\.\w{3}$/;
+        let patronPass = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8}$/;
+                        // ?= significa que da igual por donde empiece, pero debe de contener..
+                        // Cualquier letra 0 o 1 vez y un digito
+                        // cualquier letra 0 o 1 vez y una minuscula
+                        // cualquier letra 0 y 1 vez y una mayuscula
+                        // Y que tenga una longitud de 8 caracteres
+
+        if (patronNombre.test(nombre)) {
+            console.log("Nombre valido: "+nombre);
+        }else{
+            console.log("Nombre No Valido");
+        }
+
+        if (arrayApellidos.length != 2) {
+            console.log("Apellidos No Validos");
+        }else{
+            console.log("Apellidos Validos: "+apellidos);
+        }
+
+        if (patronEmail.test(correo)) {
+            console.log("Correo valido: "+correo);
+        }else{
+            console.log("Correo No Valido");
+        }
+
+        if (patronPass.test(password)) {
+            console.log("Pass valido: "+password);
+        }else{
+            console.log("Pass No Valido");
+        }
+        
+    </script>
+</body>
+</html>

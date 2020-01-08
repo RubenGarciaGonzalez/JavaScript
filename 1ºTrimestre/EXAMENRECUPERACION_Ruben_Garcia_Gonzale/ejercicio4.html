@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 4 Examen</title>
+</head>
+<body>
+    <script>
+        let fechas = [];
+
+        let intervalo = setInterval(añadirFecha,3000);
+        let intervalo1 = setInterval(comprobarTamanio,3000);
+
+        function añadirFecha(){
+            let fecha=new Date();
+            let msFecha=fecha.getTime();
+            fechas.push(msFecha);
+            console.log(fechas);
+        }
+
+        function comprobarTamanio(){
+            if (fechas.length>=4) {
+                fechas = [];
+                console.log("--BORRADO--");
+            }else{
+                console.log("---Comprobar tamaño: "+fechas.length);
+                console.log("---Fin Comprobar Tamaño");
+            }
+        }
+
+    </script>
+</body>
+</html>

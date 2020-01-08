@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 1 Examen</title>
+</head>
+<body>
+    <script>
+        // 1º 
+        var texto = "A la abeja semejante, para que cause placer, el epigrama ha de ser: pequeño, dulce y punzante";
+        var patronTexto = /abeja/gi;
+        texto = texto.replace(patronTexto,"avispa");
+        console.log(texto);
+
+        //2º 
+        var cad = "My phone number is: 555-123-4567";
+        var patronNum = /\d+/gi;
+        console.log(cad.match(patronNum));
+
+        //3º
+        var cad1 = "My phone number is: 555-123-4567. My cell number is: 55-987-5432";
+        var patronNum1 = /\d+/gi;
+        console.log(cad1.match(patronNum1));
+        
+    </script>
+</body>
+</html>

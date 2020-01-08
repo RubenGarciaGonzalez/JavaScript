@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Script once</title>
+</head>
+<body>
+    <script>
+        let letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J',
+                      'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+        
+        //1)
+        let num=prompt("Introduzca el número de su DNI");
+        let letra=prompt("Introduzca la letra de su DNI");
+        letra=letra.toUpperCase();
+
+        //2), 3), 4)
+        if (num<0 || num>99999999) {
+            alert("ERROR! EL NÚMERO PROPORCIONADO ES ERRÓNEO");
+        }else{
+            let letraDni=letras[num % 23];
+            if (letraDni != letra) {
+                alert("ERROR!No coinciden la letra calculada con la proporcionada");
+            }else{
+                alert("Su DNI es correcto");
+            }
+        }
+
+    </script>
+</body>
+</html>

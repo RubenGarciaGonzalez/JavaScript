@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>El sexto script</title>
+</head>
+<body>
+    <!--Crear un vector con los valores:  [0,7,2,3,4,2,6,2,8,2].  Luego borrar las componentes donde
+    hay un 2 y en dichas posiciones, al mismo tiempo insertar 2 elementos con el valor 1. Es decir,
+    cada vez que se encuentre un 2, lo borras y los sustituyes por 2 posiciones en el array 
+    conteniendo ambas el valor 1. Debes de hacer uso del método splice tanto para el borrado como para insertar.-->
+    <script>
+        let vector = [0,7,2,3,4,2,6,2,8];
+        for (let i = 0; i < vector.length; i++) {
+            if (vector[i]==2) {
+                vector.splice(i,1,1,1);//Primero se pone el valor el cual queremos borrar, en este caso i
+                                        //Despues, cuantos quieres borrar, contandose asimismo
+                                        //Y por ultimo, los numeros a introducir, introducidos por comas si son mas de 1
+            }   
+        }
+        document.write(vector); 
+    </script>
+
+</body>
+</html>

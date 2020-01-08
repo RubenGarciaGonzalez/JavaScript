@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 3 Examen</title>
+</head>
+<body>
+    <script>
+        var actual = new Date();
+        var msActual = actual.getTime();
+
+        var i, output="";
+        for (i = 0; i <=1e6; i++) {
+            output+=1; 
+        }
+
+        var final = new Date();
+        var msFinal = final.getTime();
+
+        var resultado = msFinal - msActual;
+
+        console.log("En total ha tardado en ejecutar el bucle "+resultado+" milisegundos");
+        
+    </script>
+</body>
+</html>

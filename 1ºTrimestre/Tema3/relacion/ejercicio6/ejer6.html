@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    <!--
+        Ejercicio 6
+
+        Crea un programa que pida al usuario su nombre y apellidos y muestre:
+        El tamaño del nombre más los apellidos (sin contar espacios).
+        La cadena en minúsculas y en mayúsculas.
+        Que divida el nombre y los apellidos y los muestre en 3 líneas, donde ponga Nombre: / Apellido 1: / Apellido 2: y además, 
+        Una propuesta de nombre de usuario, compuesto por la inicial del nombre, el primer apellido y la inicial del segundo apellido: ej.
+        Para Laura Folgado Galache sería lfolgadog.
+        Una propuesta de nombre de usuario compuesto por las tres primeras letras del nombre y de los dos apellidos: ej. Laufolgal.
+    -->
+
+        <script>
+            
+            let nombre=prompt("Digame su nombre y apellidos");
+            // let quitarEspacio=nombre.split(" ");
+            // let nombre1=quitarEspacio.length;
+            // alert("El tamaño del nombre es "+nombre1);
+            // let minusculas=nombre.toLocaleLowerCase();
+            // let mayusculas=nombre.toLocaleUpperCase();
+            // alert("El nombre en minusculas es "+minusculas+" y en mayusculas es "+mayusculas);
+            // let arrayNombre=nombre.split(" ");
+            // for (let i = 0; i < arrayNombre.length; i++) {
+            //     alert(arrayNombre[i] + " / "); 
+            // }
+            let propuestaNombre=nombre.split("1");
+            console.log(propuestaNombre);
+            
+        </script>
+
+    
+</body>
+</html>
