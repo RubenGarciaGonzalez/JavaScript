@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejemplos Callbacks</title>
+</head>
+<body>
+    <script>
+        function loadScript(url, callback) {
+            let script = document.createElement('script');
+            script.src = url;
+            script.onload  = () => callback(script);
+            document.head.append(script);
+        }
+
+
+        //Llamando a la función
+        loadScript('script1.js', function(){
+            console.log("Hemos termiando de cargar el script");
+            escribirHola();
+        });
+
+        escribirHola();
+    
+    
+    </script>
+</body>
+</html>

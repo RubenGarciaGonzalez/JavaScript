@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promesas</title>
+</head>
+<body>
+    <script>
+            //Este ejemplo lo hemos hecho para ver cuando se invoca "rejected"
+            //si se ejecuta el .then-error o el .catch
+
+            let promesa = new Promise((resolve, rejected) => {
+                //Tarea asíncrona
+                setTimeout(()=>{resolve("OK")}, 1000);
+                //Fin tarea asíncrona
+            });
+
+            promesa.then( (param1) => {console.log("¿Ha ido todo bien?" + param1)} )
+                    .catch( (param1) => {console.log("Algo ha fallado "+param1)} );
+                    
+    
+    
+    </script>
+</body>
+</html>
