@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 1.- Callbacks</title>
+</head>
+<body>
+    <script>
+        function llamadaServidor( numSegundos , callback){
+            setTimeout( function() {
+                 console.log(`Llamada al servidor de ${numSegundos} sg.`); 
+            }, numSegundos );
+            callback();
+        }
+
+        function call1(error, numSegundos){
+            if (error) {
+                console.log("Error, "+error);
+            }else{  
+                console.log("La primera llamada ha tardado "+numSegundos);
+                llamadaServidor(3000,call2);
+            }
+        }
+
+        function call2(error, numSegundos){
+            if (error) {
+                console.log("Error, "+error);
+            }else{
+                console.log("La segunda llamada ha tardado "+numSegundos);
+                llamadaServidor(4000, call3);
+            }
+        }
+
+        llamadaServidor(2000,call1);
+        
+    </script>
+</body>
+</html>
