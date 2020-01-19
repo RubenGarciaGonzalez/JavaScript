@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 6.2</title>
+</head>
+
+<body>
+    <script>
+        const posts = [{
+                title: "Post1",
+                body: "This is post one"
+            },
+            {
+                title: "Post2",
+                body: "This is post two"
+            }
+        ];
+
+        // function getPosts() {
+        //     setTimeout(() => {
+        //         let output = ``;
+        //         posts.forEach((post, index) => {
+        //             output += `<li>${post.title}</li>`;
+        //         })
+        //         document.body.innerHTML = output;
+        //     }, 1100);
+        // }
+
+        // function createPost(newPost) {
+        //     setTimeout(() => {
+        //         posts.push(newPost)
+        //     }, 1000);
+        // }
+
+        // getPosts();
+        // createPost({
+        //     title: "Post3",
+        //     body: "This is post three"
+        // })
+
+        // Ejercicio 6.2:  Busque una solución al problema haciendo uso de promises.
+
+        function getPosts() {
+            setTimeout(() => {
+                let output = ``;
+                posts.forEach((post, index) => {
+                    output += `<li>${post.title}</li>`;
+                });
+                document.body.innerHTML = output;
+            }, 1000);
+        }
+
+        function createPost(newPost){
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    posts.push(newPost);
+                    var flag = false;
+                    if (flag = true) {
+                        resolve();
+                    }else{
+                        reject("Error: algo ha ido mal");
+                    }
+                },1000);
+            });
+        }
+
+        createPost({title: "Post3",body: "This is post three"})
+            .then(getPosts)
+            .catch((error)=>console.log(flag))
+
+
+    </script>
+</body>
+
+</html>
