@@ -13,8 +13,8 @@
                 setTimeout(()=>resolve('runs after '+ms+' ms'), ms)
             });
             promesa
-                .then((response)=>{
-                    console.log('Response: ',response);
+                .then((correcto)=>{
+                    console.log('Ha funcionado bien: ',correcto);
                 })
                 .catch((error)=>{
                     console.log('Error:',error);

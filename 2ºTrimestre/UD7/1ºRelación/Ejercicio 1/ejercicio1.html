@@ -10,10 +10,61 @@
     <script>
         function llamadaServidor( numSegundos , callback){
             setTimeout( function() {
-                 console.log(`Llamada al servidor de ${numSegundos} sg.`); 
+                 console.log(`Llamada al servidor de ${numSegundos} sg.`);
+                 callback(numSegundos);
             }, numSegundos );
-            callback();
         }
+
+        function callback(numSegundos){
+            console.log("La primera llamada al servidor ha tardado "+numSegundos+" sg");
+            llamadaServidor(3000, callback2);
+        }
+
+        function callback2(numSegundos){
+            console.log("La segunda llamada al servidor ha tardado "+numSegundos+" sg");
+            llamadaServidor(4000, callback3);
+        }
+
+        function callback3(numSegundos){
+            if (numSegundos==4000) {
+                console.log("La tercera llamada al servidor ha tardado "+numSegundos+" sg");
+                console.log("Hemos terminado todo perfecto");
+            }else{
+                console.log("Error, ha tardado más de 4 segundos en ejecutarse");
+            }
+        }
+
+        llamadaServidor(2000, callback);
+
+        // Forzamos un error en la tercera llamada poniendo el tiempo a 4,5s 
+
+        // function llamadaServidor( numSegundos , callback){
+        //     setTimeout( function() {
+        //          console.log(`Llamada al servidor de ${numSegundos} sg.`);
+        //          callback(numSegundos);
+        //     }, numSegundos );
+        // }
+
+        // function callback(numSegundos){
+        //     console.log("La primera llamada al servidor ha tardado "+numSegundos+" sg");
+        //     llamadaServidor(3000, callback2);
+        // }
+
+        // function callback2(numSegundos){
+        //     console.log("La segunda llamada al servidor ha tardado "+numSegundos+" sg");
+        //     llamadaServidor(4500, callback3);
+        // }
+
+        // function callback3(numSegundos){
+        //     if (numSegundos==4000) {
+        //         console.log("La tercera llamada al servidor ha tardado "+numSegundos+" sg");
+        //         console.log("Hemos terminado todo perfecto");
+        //     }else{
+        //         console.log("Error, ha tardado más de 4 segundos en ejecutarse");
+        //     }
+        // }
+
+        // llamadaServidor(2000, callback);
 
         
         

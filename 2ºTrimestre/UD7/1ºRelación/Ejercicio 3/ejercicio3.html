@@ -22,12 +22,12 @@
             });
         }
 
-        var promesa = loadScript("https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js");
+        promesa = loadScript("https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js");
 
         promesa
             .then(
                 script => console.log("El script "+script.src+" ha sido cargado correctamente"),
-                error => console.log("Error: "+error.message)  
+                error => console.log("Error: "+error)  
             );
 
         
