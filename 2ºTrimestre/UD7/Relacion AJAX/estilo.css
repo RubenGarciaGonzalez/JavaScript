@@ -1,0 +1,21 @@
+*{
+    margin: auto;
+}
+
+body{
+    background:radial-gradient(rgb(47,150,163), rgb(48,62,143));
+}
+
+.encabezado{
+    margin:1vh;
+}
+
+table,tr,td,th{
+    font-size: 2.5vh;
+    border: 1px solid black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+tr,td,th{
+    padding: 20px;
+}

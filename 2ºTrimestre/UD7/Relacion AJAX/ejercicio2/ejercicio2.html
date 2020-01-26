@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 2.- Petición AJAX y procesamiento de respuesta HTML</title>
+    <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+    <div class="encabezado">
+        <h2>Datos alumnos</h2>
+        <button id="mostrarDatos">Mostrar alumnos</button>
+    </div>
+    <table id="table"></table>
+
+    <script>
+        document.getElementById("mostrarDatos").addEventListener("click", cargarAlumnos);
+
+        function cargarAlumnos() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    loadXML(this);
+                }
+            };
+            xhr.open("GET", "alumnos.xml", true);
+            xhr.send();
+        }
+
+        function loadXML(xml) {
+            var docuXML = xml.responseXML;
+            var tabla = "<tr><th>Nombre</th><th>Apellido</th><th>Nota</th></tr>";
+            var alumnos = docuXML.getElementsByTagName("alumno");
+            for (var i = 0; i < alumnos.length; i++) {
+                tabla += "<tr><td>";
+                tabla += alumnos[i].getElementsByTagName("nombre")[0].textContent;
+                tabla += "</td><td>";
+                tabla += alumnos[i].getElementsByTagName("apellido")[0].textContent;
+                tabla += "</td><td>";
+                tabla += alumnos[i].getElementsByTagName("nota")[0].textContent;
+                tabla += "</td></tr>";
+            }
+            document.getElementById("table").innerHTML = tabla;
+        }
+    </script>
+</body>
+
+</html>

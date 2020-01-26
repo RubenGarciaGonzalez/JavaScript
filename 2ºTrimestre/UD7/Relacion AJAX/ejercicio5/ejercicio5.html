@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../estilo.css">
+    <title>Ejercicio 5.- Petición AJAX y procesamiento de respuesta JSON</title>
+</head>
+<body onload="leerApi()">
+<table id="demo"></table>
+    <script>
+        function leerApi(){
+            var tabla = document.querySelector('#demo');
+            var xhttp = new XMLHttpRequest();
+            xhttp.open('GET','nombres.json',true);
+            xhttp.send();
+            xhttp.onload = function(){
+                var documento = JSON.parse(this.responseText);
+                tabla.innerHTML+=`<tr><td>Nombre</td>
+                                    <td>Edad</td><td>Ciudad</td></tr>`;     
+                for (var item of documento) {
+                    tabla.innerHTML+=`<tr>
+                        <td>${item.nombre}</td>
+                        <td>${item.edad}</td>
+                        <td>${item.ciudad}</td>
+                    </tr> `;
+                }
+            }
+        }
+
+
+    
+    </script>
+</body>
+</html>

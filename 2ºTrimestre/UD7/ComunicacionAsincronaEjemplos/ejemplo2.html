@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script>
+        if (window.XMLHttpRequest) {
+            httpRequest = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+            console.log("Objeto creado con ActiveXObject.");
+        } else {
+            console.error("Error: Este navegador no admite AJAX.");
+        }
+        httpRequest.onload = procesarRespuesta;
+        httpRequest.open('GET', 'provincias.xml', true);
+        httpRequest.send(null);
+
+        function procesarRespuesta() {
+            var respuesta = httpRequest.responseText;
+            var elementPre = document.createElement('pre');
+            elementPre.innerHTML = respuesta;
+            document.body.appendChild(elementPre);
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

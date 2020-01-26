@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilo.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 4.- Búsqueda de datos abiertas para utilizar en aplicaciones web</title>
+</head>
+<body onload="leerApi()">
+    <h2 align="center">EFECTOS DE LA MARIHUANA</h2>
+    <br>
+<table id="demo"></table>
+    <script>
+        function leerApi(){
+            var tabla = document.querySelector('#demo');
+            var xhttp = new XMLHttpRequest();
+            xhttp.open('GET','http://strainapi.evanbusse.com/ZkSHlpn/searchdata/effects',true);
+            xhttp.send();
+            xhttp.onload = function(){
+                var documento = JSON.parse(this.responseText);
+                tabla.innerHTML+=`<tr><td>Efectos</td>
+                                    <td>Tipos</td></tr>`;     
+                for (var item of documento) {
+                    tabla.innerHTML+=`<tr>
+                        <td>${item.effect}</td>
+                        <td>${item.type}</td>
+                    </tr> `;
+                }
+            }
+        }
+
+
+    
+    </script>
+</body>
+</html>
