@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejemplos Cookies</title>
+</head>
+<body>
+    <script>
+        //Crear una cookie; fecha de expiracion -UTC; edad maxima en segundos; ruta; dominio
+        document.cookie = "usuario = Ruben Garcia; expires = Thu,29 Jan 2020 12:00:00 UTC; path=/;";
+        document.cookie = "sexo = hombre;";
+
+        //Leer una cookie
+        var miCookie = document.cookie;
+        alert(miCookie);
+
+        //Modificar una cookie
+        document.cookie = "sexo = mujer;";
+        alert(document.cookie);
+
+        //Como borrar una cookie
+        document.cookie = "usuario =; expires = Thu, 01 Jan 1970 00:00:01 GMT;";
+        document.cookie = "sexo =; expires = Thu, 01 Jan 1970 00:00:01 GMT;";
+        alert(document.cookie);
+    </script>
+</body>
+</html>
