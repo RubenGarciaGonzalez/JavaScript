@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 2.- WebStorage</title>
+</head>
+
+<body>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" />
+
+    <label for="contraseña">Password:</label>
+    <input type="password" id="password" />
+
+    <input type="button" id="guardar" value="Guardar datos" />
+    <input type="button" id="reset" value="Resetear">
+    <div id="demo"></div>
+    <div id="contador"></div>
+
+    <script>
+        let demo = document.getElementById('demo');
+        let contador = document.getElementById('contador');
+        let nombre=document.getElementById('nombre');
+        let password=document.getElementById('password');
+        document.getElementById('guardar').addEventListener('click', guardarInfo);
+        document.getElementById('reset').addEventListener('click', resetear);        
+
+        function guardarInfo(){
+            if (nombre.value!=0 && password.value!=0) {
+                localStorage.setItem('Nombre', nombre.value);
+                localStorage.setItem('Password', password.value);
+                demo.innerHTML+="Información guardada<br>";
+                password.value="";
+                nombre.value="";
+            }else{
+                if (localStorage.contador) {
+                    localStorage.contador = parseInt(localStorage.contador) + 1;
+                } else {
+                    localStorage.contador = 1;
+                }
+                contador.innerHTML = localStorage.contador + " fallos";
+            }
+        }
+
+        function resetear() {
+            localStorage.removeItem("contador");
+        }
+
+    </script>
+</body>
+
+</html>

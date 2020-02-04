@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IndexedDB</title>
+</head>
+
+<body>
+
+    DB: <input type="text" value="notas" id="txtDB" readonly>
+    Version: <input type="text" id="versionDB" value="1" readonly>
+    <button id="btnCreateDB">Crear BD</button>
+
+    <script>
+
+        let nombreDB = document.getElementById('txtDB');
+        let versionDB = document.getElementById('versionDB');
+
+        document.getElementById('btnCreateDB').addEventListener('click', () => {
+            crearBaseDatos(nombreDB.value, versionDB.value);
+        });
+
+        function crearBaseDatos() {
+            if (!indexedDB) {
+                console.log('IndexedDB no soportada');
+            } else {
+                let database = indexedDB.open(nombreDB,Number.parseInt(versionDB));
+                database.onupgradeneeded = e => {
+                    console.log('Me estoy refrescando');
+                };
+                database.onsuccess = e => {
+                    console.log('Todo de puta madre');
+                };
+
+                database.onerror = e => {
+                    console.log('Housten, tenemos un problema');
+                };
+            }
+        }
+    </script>
+</body>
+
+</html>
